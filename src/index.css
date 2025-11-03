@@ -5,8 +5,9 @@
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: #001931;
+  --color-primary: #632EE3;
   --color-secondary: teal;
+  --color-accent: #627382;
 }
 
 .bg-gradient{
@@ -19,4 +20,14 @@
 
 nav ul a.active{
   @apply bg-linear-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent;
+}
+
+.margin-top {
+  @apply mt-4 md:mt-8 lg:mt-12 xl:mt-16;
+}
+.margin-bottom {
+  @apply mb-4 md:mb-8 lg:mb-12 xl:mb-16;
+}
+.margin-y {
+  @apply my-4 md:my-8 lg:my-12 xl:my-16;
 }

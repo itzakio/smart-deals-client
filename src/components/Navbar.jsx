@@ -23,19 +23,16 @@ const Navbar = () => {
       <li>
         <NavLink to="/all-products">All Products</NavLink>
       </li>
-      {user && (
-        <>
-          <li>
-            <NavLink to="/my-products">My Products</NavLink>
-          </li>
-          <li>
-            <NavLink to="/my-bids">My Bids</NavLink>
-          </li>
-          <li>
-            <NavLink to="/create-product">Create Product</NavLink>
-          </li>
-        </>
-      )}
+
+      <li>
+        <NavLink to="/my-products">My Products</NavLink>
+      </li>
+      <li>
+        <NavLink to="/my-bids">My Bids</NavLink>
+      </li>
+      <li>
+        <NavLink to="/create-product">Create Product</NavLink>
+      </li>
     </>
   );
 
@@ -77,11 +74,16 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {user ? (
-            <button onClick={signOutHandler} className="btn bg-gradient text-white">
+            <button
+              onClick={signOutHandler}
+              className="btn bg-gradient text-white"
+            >
               LogOut
             </button>
           ) : (
-            <Link to="/login" className="btn bg-gradient text-white">Login</Link>
+            <Link to="/login" className="btn bg-gradient text-white">
+              Login
+            </Link>
           )}
         </div>
       </div>
