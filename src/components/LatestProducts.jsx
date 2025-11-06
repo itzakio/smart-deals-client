@@ -5,7 +5,6 @@ import Loading from './Loading';
 
 const LatestProducts = () => {
     const {data:latestProducts, loading, error} = useFetchData("http://localhost:3000/latest-products")
-    console.log(latestProducts);
     return (
         <div className='max-w-7xl mx-auto px-8 xl:px-0'>
             <h2 className='text-5xl font-bold text-center py-8'>Recent <span className='text-gradient'>Products</span></h2>

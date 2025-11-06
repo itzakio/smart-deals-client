@@ -5,6 +5,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import { AuthContext } from "../context/AuthContext";
 import Swal from "sweetalert2";
 import BidsTable from "../components/BidsTable";
+import axios from "axios";
 
 const ProductDetails = () => {
   const { user } = useContext(AuthContext);
@@ -15,18 +16,27 @@ const ProductDetails = () => {
     error,
   } = useFetchData(`http://localhost:3000/products/${id}`);
 
-  const {
-    data: initialBids,
-    loading: bidsLoading,
-    error: bidsError,
-  } = useFetchData(`http://localhost:3000/products/bids/${id}`);
+  // const {
+  //   data: initialBids,
+  //   loading: bidsLoading,
+  //   error: bidsError,
+  // } = useFetchData(`http://localhost:3000/products/bids/${id}`,{
+  //   headers: {
+  //     authorization: `Bearer ${user.accessToken}`
+  //   }
+  // });
   const [bids, setBids] = useState([]);
 
   useEffect(() => {
-    if (initialBids) {
-      setBids(initialBids);
+   axios.get(`http://localhost:3000/products/bids/${id}`,{
+    headers: {
+      authorization: `Bearer ${user.accessToken}`
     }
-  }, [initialBids]);
+  })
+   .then(data =>{
+    setBids(data.data);
+   })
+  }, [id]);
 
   const bidModalRef = useRef(null);
 
